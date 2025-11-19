@@ -2,6 +2,7 @@ package com.yorksolutions.tsg927nurxiongfeedbackanalyticsconsumer.controllerTest
 
 
 
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import static org.mockito.Mockito.verifyNoInteractions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,10 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.yorksolutions.tsg927nurxiongfeedbackanalyticsconsumer.controller.FeedbackController;
 import com.yorksolutions.tsg927nurxiongfeedbackanalyticsconsumer.messaging.FeedbackEventListener;
 
-@WebMvcTest(FeedbackEventListener.class)
+@WebMvcTest(FeedbackController.class)
 public class FeedbackControllerTest {
 
 
@@ -24,6 +26,7 @@ public class FeedbackControllerTest {
     FeedbackEventListener feedbackEventListener;
 
 
+    @Test
     void getHealth_HappyPath() throws Exception {
 
         mockMvc.perform(get("/health")
